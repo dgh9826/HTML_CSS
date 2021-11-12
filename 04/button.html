@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<SCRIPT LANGUAGE="JavaScript">
+        function InsertTitle(str) {
+        if (str != "") {
+         document.getElementById("Title").value = str;
+         document.getElementById("Title").readOnly = true;
+         document.getElementById("Title").style.background = "#DFDFDF";
+        } else {
+         document.getElementById("Title").value = "";
+         document.getElementById("Title").readOnly = false;
+         document.getElementById("Title").style.background = "#FFFFFF";
+         document.getElementById("Title").focus();
+        }
+       }
+</SCRIPT>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <form action="#">
+    <table>
+    <tr>
+        <td>-제목 : </td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td>-자기소개 </td>
+        <td><textarea placeholder="자기소개란." rows = "5" cols="50" style="width:500px; height:100px;"></textarea></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>
+            <button type = "button">검색</button>
+            <button type = "reset">다시쓰기</button>
+            <button type = "submit">제출</button>
+        </td>
+    </tr>
+    </table>
+    </form>
+</body>
+</html>

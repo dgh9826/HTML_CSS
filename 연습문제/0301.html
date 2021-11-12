@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<SCRIPT LANGUAGE="JavaScript">
+        function InsertTitle(str) {
+        if (str != "") {
+         document.getElementById("Title").value = str;
+         document.getElementById("Title").readOnly = true;
+         document.getElementById("Title").style.background = "#DFDFDF";
+        } else {
+         document.getElementById("Title").value = "";
+         document.getElementById("Title").readOnly = false;
+         document.getElementById("Title").style.background = "#FFFFFF";
+         document.getElementById("Title").focus();
+        }
+       }
+</SCRIPT>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h3>회원 가입 양식</h3>
+    <form action="#">
+    <table>
+    <tr>
+        <td>- 아이디</td>
+        <td><input type="text" minlength="6" maxlength="20"></td>
+    </tr>
+    <tr>
+        <td>- 비밀번호</td>
+        <td><input type="password" minlength="10" maxlength="20"></td>
+    </tr>
+    <tr>
+        <td>- 비밀번호 확인</td>
+        <td><input type="password" minlength="10" maxlength="20"></td></tr>
+    <tr>
+        <td>- 이름 </td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td>- 성별</td>
+        <td><input type="radio" name="sex"> 여성 
+            <input type="radio" name="sex"> 남성 </td>
+    </tr>
+    <tr>
+        <td>- 생년월일</td>
+        <td><input type="date" value=""></td>
+    </tr>
+    <tr>
+        <td>- 전화번호</td>
+        <td> 
+        <select name="tel">
+            <option value="02">02</option>
+            <option value="031">031</option>
+            <option value="032">032</option>
+            <option value="041">041</option>
+            <option value="042">042</option>
+            <option value="051">051</option>
+            <option value="052">052</option>
+            <option value="061">061</option>
+            <option value="062">062</option>
+            <option value="063">063</option>
+            <option value="010">010</option>
+            <option value="017">017</option>
+            <option value="018">018</option>
+            <option value="019">019</option>
+        </select>
+        - <input type="text" name = "tel1" maxlength="4" style="width: 50px;"> - 
+        <input type="text" name = "tel2" maxlength="4" style="width: 50px;">
+        </td>
+    </tr>
+    <tr>
+        <td>- 이메일 </td>
+        <td><input type="text"> @
+            <input type="text" name="Title" id="Title" 
+            style="background:#DFDFDF;" value="선택" readonly>
+            <select name="email" onchange="InsertTitle(this.value)">
+                <option value="선택">선택</option>
+                <option value="naver.com">naver.com</option>
+                <option value="hanmail.net">hanmail.net</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="kakao.com">kakao.com</option>
+                <option value="yahoo.co.kr">yahoo.co.kr</option>
+                <option value="">직접입력</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>- 자기소개 </td>
+        <td><textarea id ="introduce" maxlength="1000" placeholder="자기소개란." style="width:500px; height:100px;"></textarea></td>
+    </tr>
+    <tr>
+        <td>- 파일첨부</td>
+        <td><input type="file"> | *.pdf/.hwp/.dosc/.doc/.img/.png 만 첨부가능</td>
+    </tr>
+    </table>
+    <br>
+    <input type="submit" value ="SUMBIT"> <input type="reset" value="RESET">
+    </form>
+</body>
+</html>
