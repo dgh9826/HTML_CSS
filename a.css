@@ -1,0 +1,21 @@
+a:link {  
+    color :black;
+    text-decoration: none ;
+}
+a:visited { /* 방문 했던 싸이트 에 대한 설정 */
+    color : black ; 
+}
+a:hover {   /* 마우스를 롤오버 했을때 */ 
+    font-size: 0;
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+a:active {   /* 마우스를 링크걸린 곳에 클릭했을때 */ 
+    color : blue;
+}
+a:hover:before {
+    content: "들어가기";
+    color : rgb(151, 10, 10);
+    font-size:15px;
+}
