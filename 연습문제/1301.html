@@ -6,18 +6,72 @@
     <title>회원가입정보</title>
     <style>
         table{
-            border-bottom: solid 1px blue;
+            border-top: solid 5px rgb(48, 132, 153);
+            margin-top:0px;
         }
         u{
             padding-top: 100px;
         }
+        #info{
+            text-align: right;
+        }
     </style>
 </head>
 <body>
-    <table height="20">
+    <h4><img src="0901_img.png" width="10" height="10"> 회원가입정보</h4>
+    <table width="750" height="20">
     <tr>
-    <td><h4><img src="0901_img.png" width="10" height="10"> 회원가입정보</h4></td>
+        <td id="info"><span style="color:red;">* </span>아이디</td>
+        <td><input type="text" minlength="6" maxlength="20"></td>
     </tr>
+    <tr><td id="info"><span style="color:red;">* </span>비밀번호</td>
+        <td><input type="password" minlength="10" maxlength="20"></td></tr>
+    <tr><td id="info"><span style="color:red;">* </span>비밀번호 확인</td>
+        <td><input type="password" minlength="10" maxlength="20"></td></tr>
+    <tr><td id="info"><span style="color:red;">* </span>이름 </td>
+        <td><input type="text"></td></tr>
+    <tr><td id="info"><span style="color:red;">* </span>생년월일</td>
+        <td><input type="date" value=""></td></tr>
+    <tr><td id="info"><span style="color:red;">* </span>이메일 </td>
+        <td><input type="text"> @
+            <input type="text" name="Title" id="Title" 
+            style="background:#DFDFDF;" value="선택" readonly>
+            <select name="email" onchange="InsertTitle(this.value)">
+                <option value="선택">선택</option>
+                <option value="naver.com">naver.com</option>
+                <option value="hanmail.net">hanmail.net</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="kakao.com">kakao.com</option>
+                <option value="yahoo.co.kr">yahoo.co.kr</option>
+                <option value="">직접입력</option>
+            </select>
+        </td></tr>
+    <tr><td id="info"><span style="color:red;">* </span>전화번호</td>
+        <td> 
+            <input type="text" name = "tel0" maxlength="3" style="width: 35px;">
+            - <input type="text" name = "tel1" maxlength="4" style="width: 50px;"> 
+            - <input type="text" name = "tel2" maxlength="4" style="width: 50px;">
+        </td></tr>
+    <tr><td id="info">직업</td>
+        <td> <select name="tel">
+            <option value="">직업선택</option>
+            <option value="031">031</option>
+            <option value="032">032</option>
+            <option value="041">041</option>
+            <option value="042">042</option>
+            <option value="051">051</option>
+            <option value="052">052</option>
+            <option value="061">061</option>
+            <option value="062">062</option>
+            <option value="063">063</option>
+            <option value="010">010</option>
+            <option value="017">017</option>
+            <option value="018">018</option>
+            <option value="019">019</option>
+        </select></td>
+    </tr>
+    <tr><td id="info">영어수강목적</td></tr>
+
     </table>
     <br><br>
     <a href = "../index.html">원래페이지로</a>
