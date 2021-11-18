@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="../a.css" rel="stylesheet" type="text/css">
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        }
+        #title{
+          border-bottom: solid 4px rgb(204, 199, 199);
+          width: 800px;
+          color:rgb(94, 124, 104);
+          margin : 10px 0 0 10px;
+        }
+        #title h3{
+          display: inline;
+        }
+        #title .line{
+          border-bottom: solid 4px rgb(94, 124, 104);
+        }
+        #calendar{
+          margin :10px 0 0 10px;
+          width:800px;
+          align-content: center;
+          text-align: center;
+        }
+        #header{
+          font-size: 15px;
+          margin: 15px 0 5px 0;
+        }
+        #nav{
+          width: 20px;
+        }
+        .days {
+          display: flex;
+          margin: 25px 0 10px;
+          height: 25px;
+          border-top:solid 2px #333333;
+          border-right:solid 1px #333333;
+          margin-bottom: 0px;
+          background-color: rgb(189, 241, 206);
+        }
+        .day{
+          display: inline;
+          width: calc(100% / 7);
+          text-align: center;
+          border-left: solid 1px #333333;
+          border-bottom:solid 1px #333333;
+          font-weight: bold;
+        }
+        .dates{
+          display: flex;
+          height: 100px;
+          border-right:solid 1px #333333;
+          margin-bottom: 0px;
+        }
+        .date{
+          padding:10px 0 0 10px;
+          display: inline;
+          width: calc(100% / 7);
+          text-align: left;
+          border-left: solid 1px #333333;
+          border-bottom:solid 1px #333333;
+          font-weight: bold;
+        }
+        .date span{
+          font-weight: lighter;
+          font-size:14px;
+        }
+        .day:nth-child(7n + 1),
+        .date:nth-child(7n + 1) {
+        color: #D13E3E;
+        }
+        .day:nth-child(7n),
+        .date:nth-child(7n) {
+        color: #396EE2;
+        }
+        #prevday{
+          opacity:0.5;
+        }
+    </style>
+</head>
+<body>
+  <div id="title"><h3 class="line">학사일정&nbsp;&nbsp;&nbsp;</h3><h3></h3></div>
+    <div id="calendar">
+      <div id="header">
+        <button id="nav">&lt;</button>
+        <span>2021년11월</span>
+        <button id="nav">&gt;</button>
+      </div>
+      <div id="main">
+        <div class="days">
+          <div class="day">일</div>
+          <div class="day">월</div>
+          <div class="day">화</div>
+          <div class="day">수</div>
+          <div class="day">목</div>
+          <div class="day">금</div>
+          <div class="day">토</div>
+        </div>
+      </div>
+      <div class="dates">
+        <div class="date"><span id="prevday">31</span></div>
+        <div class="date">1</div>
+        <div class="date">2</div>
+        <div class="date">3</div>
+        <div class="date">4</div>
+        <div class="date">5</div>
+        <div class="date">6</div>
+      </div>
+      <div class="dates">
+        <div class="date">7</div>
+        <div class="date">8</div>
+        <div class="date">9</div>
+        <div class="date">10<br><span>특강</span></div>
+        <div class="date">11</div>
+        <div class="date">12</div>
+        <div class="date">13</div>
+      </div>
+      <div class="dates">
+        <div class="date">14</div>
+        <div class="date">15<br><span>기말고사</span></div>
+        <div class="date">16<br><span>기말고사</span></div>
+        <div class="date">17<br><span>기말고사</span></div>
+        <div class="date">18<br><span>기말고사</span></div>
+        <div class="date">19<br><span>기말고사</span></div>
+        <div class="date">20</div>
+      </div>
+      <div class="dates">
+        <div class="date">21</div>
+        <div class="date">22<br><span>하계방학</span></div>
+        <div class="date">23</div>
+        <div class="date">24</div>
+        <div class="date">25</div>
+        <div class="date">26</div>
+        <div class="date">27</div>
+      </div>
+      <div class="dates">
+        <div class="date">28</div>
+        <div class="date">29</div>
+        <div class="date">30<br><span>MT</span></div>
+        <div class="date"><span id="prevday">1<br><span>MT</span></div>
+        <div class="date"><span id="prevday">2</span></div>
+        <div class="date"><span id="prevday">3</span></div>
+        <div class="date"><span id="prevday">4</span></div>
+      </div>
+    </div>
+  </div>
+  
+  <br><br>
+  <a href = "../index.html">원래페이지로</a>
+</body>
+
+</html>

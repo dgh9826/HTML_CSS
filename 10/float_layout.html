@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>float로 layout만들기</title>
+    <link href="../a.css" rel="stylesheet" type="text/css">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color: #f2f0f0;
+            font-family: "맑은 고딕";
+            font-size:12px;
+            color:#444444;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .clear{
+            clear:both;
+        }
+        #logo{
+            padding:30px 0 0 30px;
+            float: left;
+        }
+        #top_menu{
+            /* border:solid 1px red; */
+            margin:40px 12px 0 0;
+            float: right;
+        }
+        #top_menu li{
+            display: inline;
+            padding : 0 5px 0 5px; 
+        }
+        #main_menu{
+            font-size: 12px;
+            color: #ffffff;
+            background-color: #4e4e4e;
+            text-align: center;
+            padding : 12px;
+            margin:12px;
+        }
+        #main_menu li{
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="logo">
+        <img src="img/logo.gif">
+    </div>
+    <ul id = "top_menu">
+        <li>로그인</li>
+        <li>회원가입</li>
+        <li>마이페이지</li>
+        <li>주문배송 조회</li>
+        <li>장바구니</li>
+        <li>이용안내</li>
+        <li>고객센터</li>
+    </ul>
+    <div class="clear"> </div>
+    <ul id= "main_menu">
+        <li>다연아트 소개</li>
+        <li>상품 QnA</li>
+        <li>시안 확인</li>
+        <li>고객 갤러리</li>
+        <li>공지사항</li>
+    </ul>
+    
+    <br><br>
+    <a href = "../index.html">원래페이지로</a>
+</body>
+</html>

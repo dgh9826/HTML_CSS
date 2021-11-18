@@ -5,74 +5,173 @@
     <link href="../a.css" rel="stylesheet" type="text/css">
     <title>회원가입정보</title>
     <style>
-        table{
-            border-top: solid 5px rgb(48, 132, 153);
-            margin-top:0px;
+        *{
+            margin : 0;
+            padding : 0;
         }
-        u{
-            padding-top: 100px;
+        ul{
+            list-style-type: none;
         }
-        #info{
+        li{
+            display: inline-block;
+        }
+        .cols {
+            width:150px;
+            height: 2000px;
             text-align: right;
+        }
+        .cols1{
+            width:550px;
+            margin-left: 10px;
+        }
+        h4{
+            border-bottom: solid 3px skyblue;
+            padding:10px 10px 7px 10px;
+            margin-left:20px;
+            margin-right: 20px;
+        }
+        .main{
+            padding:10px 10px 7px 10px;
+            margin-left: 10px;
+            margin-right: 20px;
+        }
+        .info{
+            padding-left:30px;
+            margin-top:10px;
+            height: 40px;
+            border-bottom: solid 1px black;
+        }
+        .ef{
+            color:red;
+        }
+        .call1{
+            width: 40px;
+        }
+        .call2,.call3{
+            width:60px;
+        }
+        .year{
+            width: 50px;
+        }
+        .month,.day{
+            width:30px;
+        }
+        div input{
+            margin-left:20px;
+        }
+        #comment{
+            opacity: 0.5;
+            font-size:12px;
+        }
+        #btn{
+                background-color:rgb(63, 157, 216);
+                width: 60px;
+                color:white;
+                font-size: 12px;
+                border-radius:3px;
+            }
+        #submit{
+            background-color: white;
+            border-radius: 3px;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
-    <h4><img src="0901_img.png" width="10" height="10"> 회원가입정보</h4>
-    <table width="750" height="20">
-    <tr>
-        <td id="info"><span style="color:red;">* </span>아이디</td>
-        <td><input type="text" minlength="6" maxlength="20"></td>
-    </tr>
-    <tr><td id="info"><span style="color:red;">* </span>비밀번호</td>
-        <td><input type="password" minlength="10" maxlength="20"></td></tr>
-    <tr><td id="info"><span style="color:red;">* </span>비밀번호 확인</td>
-        <td><input type="password" minlength="10" maxlength="20"></td></tr>
-    <tr><td id="info"><span style="color:red;">* </span>이름 </td>
-        <td><input type="text"></td></tr>
-    <tr><td id="info"><span style="color:red;">* </span>생년월일</td>
-        <td><input type="date" value=""></td></tr>
-    <tr><td id="info"><span style="color:red;">* </span>이메일 </td>
-        <td><input type="text"> @
-            <input type="text" name="Title" id="Title" 
-            style="background:#DFDFDF;" value="선택" readonly>
-            <select name="email" onchange="InsertTitle(this.value)">
-                <option value="선택">선택</option>
-                <option value="naver.com">naver.com</option>
-                <option value="hanmail.net">hanmail.net</option>
-                <option value="gmail.com">gmail.com</option>
-                <option value="kakao.com">kakao.com</option>
-                <option value="yahoo.co.kr">yahoo.co.kr</option>
-                <option value="">직접입력</option>
-            </select>
-        </td></tr>
-    <tr><td id="info"><span style="color:red;">* </span>전화번호</td>
-        <td> 
-            <input type="text" name = "tel0" maxlength="3" style="width: 35px;">
-            - <input type="text" name = "tel1" maxlength="4" style="width: 50px;"> 
-            - <input type="text" name = "tel2" maxlength="4" style="width: 50px;">
-        </td></tr>
-    <tr><td id="info">직업</td>
-        <td> <select name="tel">
-            <option value="">직업선택</option>
-            <option value="031">031</option>
-            <option value="032">032</option>
-            <option value="041">041</option>
-            <option value="042">042</option>
-            <option value="051">051</option>
-            <option value="052">052</option>
-            <option value="061">061</option>
-            <option value="062">062</option>
-            <option value="063">063</option>
-            <option value="010">010</option>
-            <option value="017">017</option>
-            <option value="018">018</option>
-            <option value="019">019</option>
-        </select></td>
-    </tr>
-    <tr><td id="info">영어수강목적</td></tr>
-
-    </table>
+    <form action="#">
+    <h4>⏹ 회원가입정보</h4>
+    <div class="main">
+        <div class="info">
+            <ul>
+            <li class="cols"><span class="ef">*</span>
+            아이디</li>
+            <li class="cols1"><input type="text">
+            <button id="btn">중복확인</button>
+            <span id="comment">영문,숫자 조합으로 4~12자 이내</span></li>
+            </ul>
+        </div>
+        <div class="info">
+            <ul>
+            <li class="cols"><span class="ef">*</span>
+            비밀번호</li>
+            <li class="cols1"><input type="text">
+            <span id="comment">영문,숫자 조합으로 4~12자 이내</span></li>
+            </ul>
+        </div>
+        <div class="info">
+            <ul>
+            <li class="cols"><span class="ef">*</span>
+            <span>비밀번호 확인</span></li>
+            <li class="cols1"><input type="text"></li>
+            </ul>
+        </div>
+        <div class="info">
+            <ul>
+            <li class="cols"><span class="ef">*</span>
+            이름</li>
+            <li class="cols1"><input type="text"></li>
+            </ul>
+        </div>
+        <div class="info">
+            <ul>
+            <li class="cols"><span class="ef">*</span>
+            생년월일
+            <li class="cols1"><input type="text" class="year">년
+            <input type="text" class="month">월
+            <input type="text" class="day">일
+            &nbsp;
+            <input type="radio" checked>음력
+            <input type="radio">양력</li>
+            </ul>
+        </div>
+        <div class="info">
+            <ul>
+            <li class="cols"><span class="ef">*</span>
+            이메일</li>
+            <li class="cols1"><input type="text"></li>
+            </ul>
+        </div>
+        <div class="info">
+            <ul>
+            <li class="cols"><span class="ef">*</span>
+            휴대전화</li>
+            <li class="cols1"><input type="text" class="call1"> 
+             -<input type="text" class="call2">
+             -<input type="text" class="call3"></li>
+            </ul>
+        </div>
+        <div class="info">
+            <ul>
+            <li class="cols">직업</li>
+            <li class="cols1"><select name="job">
+                <option>직업선택</option>
+                <option>무직</option>
+                <option>학생</option>
+                <option>주부</option>
+                <option>직장인</option>
+                <option>군인</option>
+                <option>관공서</option>
+                <option>기타</option>
+            </select></li>
+            </ul>
+        </div>
+        <div class="info">
+            <ul>
+            <li class="cols">영어수강목적</li>
+            <li class="cols1"><input type="checkbox">시험대비
+            <input type="checkbox">업무상
+            <input type="checkbox">취미
+            <input type="checkbox">기타
+            </li>
+            </ul>
+        </div>
+        
+        <center>
+        <input id="submit" type="reset" value="▶가입취소">
+        <input id="submit" type="submit" value="▶가입완료">
+        </center> 
+    </div>
+    </form>
     <br><br>
     <a href = "../index.html">원래페이지로</a>
 </body>
