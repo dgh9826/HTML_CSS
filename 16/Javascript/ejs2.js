@@ -1,0 +1,1 @@
+document.write("ejs2.js");document.write("<div style='color: blue; font-size: 20px;'>외부자바스크립트파일</div>");

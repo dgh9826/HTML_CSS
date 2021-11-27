@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        body{
+            font-family: "맑은고딕","돋움";
+            font-size: 100%;
+        }
+        [class*="c_"]{
+            float: left;
+            padding: 10px;
+        }
+        [class*="c_"]{
+            width:100%;
+        }
+        @media only screen and (min-width:600px){
+            .c_m_1 {width: 8.33%;}
+            .c_m_2 {width: 16.66%;}
+            .c_m_3 {width: 25%;}
+            .c_m_4 {width: 33.33%;}
+            .c_m_5 {width: 41.66%;}
+            .c_m_6 {width: 50%;}
+            .c_m_7 {width: 58.33%;}
+            .c_m_8 {width: 66.66%;}
+            .c_m_9 {width: 75%;}
+            .c_m_10 {width: 83.33%;}
+            .c_m_11 {width: 91.66%;}
+            .c_m_12 {width: 100%;}
+        }
+        @media only screen and (min-width:768px){
+            .c_1 {width: 8.33%;}
+            .c_2 {width: 16.66%;}
+            .c_3 {width: 25%;}
+            .c_4 {width: 33.33%;}
+            .c_5 {width: 41.66%;}
+            .c_6 {width: 50%;}
+            .c_7 {width: 58.33%;}
+            .c_8 {width: 66.66%;}
+            .c_9 {width: 75%;}
+            .c_10 {width: 83.33%;}
+            .c_11 {width: 91.66%;}
+            .c_12 {width: 100%;}
+        }
+        header{
+            height: 80px;
+            padding:20px;
+            background-color: #66c0e7;
+        }
+        aside#menu{
+            color:#ffffff;
+        }
+        aside#menu li{
+            padding:10px;
+            margin:5px 0 0 0;
+            background-color: #b52d89;
+        }
+        section#main{
+            padding: 15px;
+        }
+        section#main p{
+            padding: 5px;
+            font-size: 0.95em;
+            line-height: 130%;
+        }
+        aside#photos img{
+            width:100%;
+        }
+        aside#photos li{
+            margin : 5px 0 0 0;
+        }
+        footer{
+            height: 60px;
+            padding: 10px;
+            clear:both;
+            text-align: center;
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <header class="c_12"><h1>루바토의 사진 아카데미</h1></header>
+    <aside id="menu" class="c_m_3 c_3">
+        <ul>
+            <li>사진의 역사</li>
+            <li>노출이란</li>
+            <li>카메라 동작 모드</li>
+            <li>렌즈의 종류</li>
+        </ul>
+    </aside>
+    <section class="c_m_9 c_6" id="main">
+        <h1>사진의 역사</h1>
+        <p>카메라 옵스큐라(Camera obscura)는 ‘어두운 방’이라는 뜻의 라틴어에 어원을 두고 있는 용어로서, 
+            오늘날 우리가 사용하는 사진 촬영 기계인 ‘카메라’의 어원이기도 하다.
+            카메라 옵스큐라는 어두운 방이나 상자 한 쪽 면에 있는 작은 구멍을 통해 빛을 통과시키면, 
+            반대쪽 벽면에 외부의 풍경이나 형태가 거꾸로 투사되어 나타나는 현상을 기계장치로 만든 것으로서, 
+            인류 역사에서 아주 오랫동안 관찰되고 연구되어 왔다.</p>
+        <p>그리고 16세기 이탈리아 과학자 지오반니 바티스타 델라 포르타(Giovanni Battista della Ports, 1504~1615)는 
+            카메라 옵스큐라를 빛에 의한 자연 현상의 하나로 보는데 그치지 않고, 자신의 저서 
+            ‘자연의 마술(Natural Magic, 1558)’을 통해 카메라 옵스큐라의 영상을 미술과 연관지어 화가들이 
+            그림을 그리는 도구로 사용할 것을 권장하기도 했다.
+        </p>
+        <p>그 후 카메라 옵스큐라는 발전을 거듭하여 오늘날의 카메라에 이르게 되었다.</p>
+    </section>
+    <aside id="photos" class="c_m_12 c_3">
+        <h4>포토갤러리</h4>
+        <ul>
+            <li><img src="img/naksansa.jpg" alt=""></li>
+            <li><img src="img/naksansa.jpg" alt=""></li>
+        </ul>
+    </aside>
+    <footer class="c_12">
+        Copyright LOVATO All Rights Reserved.
+    </footer>
+</body>
+</html>

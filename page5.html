@@ -1,148 +1,173 @@
-<!DOCTYPE html> 
-<html lang="ko"> 
-    <head> <meta charset="UTF-8"> 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>슬라이드</title> 
-        <style>
-        /* 초기화 */ 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        } 
-        li { 
-            list-style-type: none; 
-        } 
-        /* 보여줄 구간의 높이와 넓이 설정 */ 
-        #slideShow { 
-            /*전체 컨테이너*/ 
-            width: 500px; 
-            height: 300px; 
-            position: relative; 
-            margin: 50px auto; 
-            overflow: hidden; 
-            /*리스트 형식으로 이미지를 일렬로 정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은 hidden으로 숨겨줘야됨*/ 
-        } .slides { /*이미지들이 담겨있는 슬라이드 컨테이너*/ 
-            position: absolute; 
-            left: 0; 
-            top: 0; 
-            width: 2500px; 
-            /* 슬라이드할 사진과 마진 총 넓이 */ 
-            transition: 0.5s ease-out; 
-            /*ease-out: 처음에는 느렸다가 점점 빨라짐*/ 
-        } 
-        /* 첫 번째 슬라이드 가운데에 정렬하기위해 첫번째 슬라이드만 margin-left조정 */ 
-        .slides li:first-child { 
-            margin-left: 100px; 
-        } 
-            /* 슬라이드들 옆으로 정렬 */ 
-        .slides li:not(:last-child) { 
-            float: left; 
-            margin-right: 100px; 
-        } 
-        .slides li { 
-            float: left; 
-        } 
-        .controller span { 
-            position: absolute; 
-            background-color: transparent; 
-            color: black; 
-            text-align: center;
-            border-radius: 50%; 
-            padding: 10px 20px; 
-            top: 50%; 
-            font-size: 1.3em; 
-            cursor: pointer; 
-        } 
-        /* 이전, 다음 화살표에 마우스 커서가 올라가 있을때 */ 
-        .controller span:hover { 
-            background-color: rgba(128, 128, 128, 0.11); 
-        } 
-        .prev { 
-            left: 10px; 
-        } 
-        /* 이전 화살표에 마우스 커서가 올라가 있을때 이전 화살표가 살짝 왼쪽으로 이동하는 효과*/ 
-        .prev:hover { 
-            transform: translateX(-10px); 
-        } .next { 
-            right: 10px; 
-        } 
-        /* 다음 화살표에 마우스 커서가 올라가 있을때 이전 화살표가 살짝 오른쪽으로 이동하는 효과*/ 
-        .next:hover { 
-            transform: translateX(10px); 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Slide Project</title>
+  <style>
+    html, body { box-sizing: border-box; padding: 0; margin: 0; text-align: center; }
+    *, *:before, *:after { box-sizing: inherit; }
+    .clearfix:after { content: ''; display: block; clear: both; float: none; }
+    .title { margin-bottom: 0; text-align: center; font-size: 30px; color: #333; }
+    .link, .link:visited {
+         display: inline-block; 
+        margin: 20px 0; color: #555; 
+        text-decoration: none; 
+        font-weight: bold; }
+    .link:hover, .link:focus { color: #9fd6c2; }
+    /* container - body */
+    #container { width: 500px; margin: auto; }
+    .slide_wrap { position: relative; width: 500px; height: 218px;margin: auto; padding-bottom: 30px; }
+    .slide_box { width: 500px; margin: auto; overflow-x: hidden; }
+    .slide_content { display: table; float: left; width: 500px; height: 218px; }
+    img{
+        width:500px;
+        height: 218px;
+    }
+    .slide_content > p { display: table-cell; vertical-align: middle; text-align: center; font-size: 100px; font-weight: bold; color: #555; }
+    .slide_btn_box > button { position: absolute; top: 50%; margin-top: -45px; width: 60px; height: 60px; font-size: 16px; color: #999; background: none; border: 1px solid #ddd; cursor: pointer; }
+    .slide_btn_box > .slide_btn_prev { left: -100px; }
+    .slide_btn_box > .slide_btn_next { right: -100px; }
+    .slide_pagination { position: absolute; left: 50%; bottom: 0; list-style: none; margin: 0; padding: 0; transform: translateX(-50%); }
+    .slide_pagination .dot { display: inline-block; width: 15px; height: 15px; margin: 0 5px; overflow: hidden; background: #ddd; border-radius: 50%; transition: 0.3s; }
+    .slide_pagination .dot.dot_active { background: #333; }
+    .slide_pagination .dot a { display: block; width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <h1 class="title">Carousel Project</h1>
+  <a href="https://im-developer.tistory.com/97" class="link" target="_blank">Visit blog - im-developer.tistory.com</a>
+  
+  <div id="container">
+    <div class="slide_wrap">
+      <div class="slide_box">
+        <div class="slide_list clearfix">
+          <div class="slide_content slide01">
+            <img src="04.jpg" alt="">
+          </div>
+          <div class="slide_content slide02">
+              <img src="05.jpg" alt="">
+          </div>
+          <div class="slide_content slide03">
+              <img src="06.jpg" alt="">
+          </div>
+        </div>
+        <!-- // .slide_list -->
+      </div>
+      <!-- // .slide_box -->
+      <div class="slide_btn_box">
+        <button type="button" class="slide_btn_prev">Prev</button>
+        <button type="button" class="slide_btn_next">Next</button>
+      </div>
+      <!-- // .slide_btn_box -->
+      <ul class="slide_pagination"></ul>
+      <!-- // .slide_pagination -->
+    </div>
+    <!-- // .slide_wrap -->
+  </div>
+  <!-- // .container -->
+
+  <script>
+    (function () {
+      const slideList = document.querySelector('.slide_list');  // Slide parent dom
+      const slideContents = document.querySelectorAll('.slide_content');  // each slide dom
+      const slideBtnNext = document.querySelector('.slide_btn_next'); // next button
+      const slideBtnPrev = document.querySelector('.slide_btn_prev'); // prev button
+      const pagination = document.querySelector('.slide_pagination');
+      const slideLen = slideContents.length;  // slide length
+      const slideWidth = 500; // slide width
+      const slideSpeed = 300; // slide speed
+      const startNum = 0; // initial slide index (0 ~ 4)
+      
+      slideList.style.width = slideWidth * (slideLen + 2) + "px";
+      
+      // Copy first and last slide
+      let firstChild = slideList.firstElementChild;
+      let lastChild = slideList.lastElementChild;
+      let clonedFirst = firstChild.cloneNode(true);
+      let clonedLast = lastChild.cloneNode(true);
+
+      // Add copied Slides
+      slideList.appendChild(clonedFirst);
+      slideList.insertBefore(clonedLast, slideList.firstElementChild);
+
+      // Add pagination dynamically
+      let pageChild = '';
+      for (var i = 0; i < slideLen; i++) {
+        pageChild += '<li class="dot';
+        pageChild += (i === startNum) ? ' dot_active' : '';
+        pageChild += '" data-index="' + i + '"><a href="#"></a></li>';
+      }
+      pagination.innerHTML = pageChild;
+      const pageDots = document.querySelectorAll('.dot'); // each dot from pagination
+
+      slideList.style.transform = "translate3d(-" + (slideWidth * (startNum + 1)) + "px, 0px, 0px)";
+
+      let curIndex = startNum; // current slide index (except copied slide)
+      let curSlide = slideContents[curIndex]; // current slide dom
+      curSlide.classList.add('slide_active');
+
+      /** Next Button Event */
+      slideBtnNext.addEventListener('click', function() {
+        if (curIndex <= slideLen - 1) {
+          slideList.style.transition = slideSpeed + "ms";
+          slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 2)) + "px, 0px, 0px)";
         }
+        if (curIndex === slideLen - 1) {
+          setTimeout(function() {
+            slideList.style.transition = "0ms";
+            slideList.style.transform = "translate3d(-" + slideWidth + "px, 0px, 0px)";
+          }, slideSpeed);
+          curIndex = -1;
+        }
+        curSlide.classList.remove('slide_active');
+        pageDots[(curIndex === -1) ? slideLen - 1 : curIndex].classList.remove('dot_active');
+        curSlide = slideContents[++curIndex];
+        curSlide.classList.add('slide_active');
+        pageDots[curIndex].classList.add('dot_active');
+      });
 
-        </style>
-    </head> 
-        <body> 
-            <div id="slideShow"> 
-                <ul class="slides"> 
-                    <li><img src="image/flower.jpg" alt=""></li> 
-                    <li><img src="image/fox.jpg" alt=""></li> 
-                    <li><img src="image/lightning.jpg" alt=""></li> 
-                    <li><img src="image/moon.jpg" alt=""></li> 
-                    <li><img src="image/nature.jpg" alt=""></li> 
-                    <li><img src="image/space.jpg" alt=""></li>
-                </ul>
-                <p class="controller"> <!-- &lang: 왼쪽 방향 화살표 &rang: 오른쪽 방향 화살표 --> 
-                    <span class="prev">&lang;</span> 
-                    <span class="next">&rang;</span> 
-                </p> 
-            </div> 
-            <script>
-            let slides = document.querySelector('.slides'); 
-            let slideImg = document.querySelectorAll('.slides li'); 
-            currentIdx = 0; slideCount = slideImg.length; 
-            prev = document.querySelector('.prev'); 
-            //이전 버튼 
-            next = document.querySelector('.next'); 
-            //다음 버튼 
-            slideWidth = 300; 
-            //슬라이드이미지 넓이 
-            slideMargin = 100; 
-            //슬라이드 끼리의 마진값 
-            makeClone(); 
-            // 처음이미지와 마지막 이미지 복사 함수 
-            initfunction(); 
-            //슬라이드 넓이와 위치값 초기화 함수 
-            function makeClone() { 
-                let cloneSlide_first = slideImg[0].cloneNode(true); 
-                let cloneSlide_last = slides.lastElementChild.cloneNode(true); 
-                slides.append(cloneSlide_first); 
-                slides.insertBefore(cloneSlide_last, slides.firstElementChild); 
-            } function initfunction() { 
-                slides.style.width = (slideWidth + slideMargin) * (slideCount + 2) + 'px'; 
-                slides.style.left = -(slideWidth + slideMargin) + 'px'; 
-            } next.addEventListener('click', function () { 
-                //다음 버튼 눌렀을때 
-                if (currentIdx <= slideCount - 1) { 
-                    //슬라이드이동 
-                    slides.style.left = -(currentIdx + 2) * (slideWidth + slideMargin) + 'px'; 
-                    slides.style.transition = `${0.5}s ease-out`; 
-                    //이동 속도 
-                } if (currentIdx === slideCount - 1) { 
-                    //마지막 슬라이드 일때 
-                    setTimeout(function () { 
-                        //0.5초동안 복사한 첫번째 이미지에서, 진짜 첫번째 위치로 이동 
-                        slides.style.left = -(slideWidth + slideMargin) + 'px'; 
-                        slides.style.transition = `${0}s ease-out`; 
-                    }, 500); 
-                    currentIdx = -1; } currentIdx += 1; }); 
-                    prev.addEventListener('click', function () { 
-                        //이전 버튼 눌렀을때 
-                        console.log(currentIdx); if (currentIdx >= 0) { 
-                            slides.style.left = -currentIdx * (slideWidth + slideMargin) + 'px'; 
-                            slides.style.transition = `${0.5}s ease-out`; 
-                        } 
-                        if (currentIdx === 0) { 
-                            setTimeout(function () { 
-                            slides.style.left = -slideCount * (slideWidth + slideMargin) + 'px'; 
-                            slides.style.transition = `${0}s ease-out`; }, 500); 
-                            currentIdx = slideCount; 
-                        } currentIdx -= 1; 
-                    });
+      /** Prev Button Event */
+      slideBtnPrev.addEventListener('click', function() {
+        if (curIndex >= 0) {
+          slideList.style.transition = slideSpeed + "ms";
+          slideList.style.transform = "translate3d(-" + (slideWidth * curIndex) + "px, 0px, 0px)";
+        }
+        if (curIndex === 0) {
+          setTimeout(function() {
+            slideList.style.transition = "0ms";
+            slideList.style.transform = "translate3d(-" + (slideWidth * slideLen) + "px, 0px, 0px)";
+          }, slideSpeed);
+          curIndex = slideLen;
+        }
+        curSlide.classList.remove('slide_active');
+        pageDots[(curIndex === slideLen) ? 0 : curIndex].classList.remove('dot_active');
+        curSlide = slideContents[--curIndex];
+        curSlide.classList.add('slide_active');
+        pageDots[curIndex].classList.add('dot_active');
+      });
 
-                </script> 
-</body> 
+      /** Pagination Button Event */
+      let curDot;
+      Array.prototype.forEach.call(pageDots, function (dot, i) {
+        dot.addEventListener('click', function (e) {
+          e.preventDefault();
+          curDot = document.querySelector('.dot_active');
+          curDot.classList.remove('dot_active');
+          
+          curDot = this;
+          this.classList.add('dot_active');
+
+          curSlide.classList.remove('slide_active');
+          curIndex = Number(this.getAttribute('data-index'));
+          curSlide = slideContents[curIndex];
+          curSlide.classList.add('slide_active');
+          slideList.style.transition = slideSpeed + "ms";
+          slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 1)) + "px, 0px, 0px)";
+        });
+      });
+    })();
+  </script>
+</body>
 </html>

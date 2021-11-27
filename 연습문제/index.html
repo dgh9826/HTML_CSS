@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰 회원관리 VER 1.0</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        header h2{
+            text-align: center;
+        }
+        ul{
+            list-style-type: none;
+        }
+        nav ul li{
+            display: inline-block;
+        }
+        main{
+            text-align: center;
+            align-content: center;
+        }
+        form{
+            border:3px solid black;
+        }
+        .info li{
+            display: flex;
+            border:1px solid black;
+
+        }
+        .info li div{
+            text-align: center;
+            font-weight: bold;
+            width:400px;
+            height: 25px;
+            border-right: 1px black solid;
+        }
+        .txt{
+            width:250px;
+            float: left;
+        }
+        .btn_fun{
+            width:30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>쇼핑몰 회원관리 VER 1.0</h2>
+        <nav>
+            <ul>
+                <li>회원등록</li>
+                <li>회원목록조회/수정</li>
+                <li>회원매출조회</li>
+                <li>홈으로</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h3>쇼핑몰 회원 등록</h3>
+        <section>
+            <form action="#">
+                <ul class="info">
+                    <li><div>회원번호(자동발생)</div> <input class="txt" type="text"></li>
+                    <li><div>회원성명</div> <input class="txt"type="text"></li>
+                    <li><div>가입일자</div> <input class="txt"  type="text"></li>
+                    <li><div>회원주소</div> <input class="txt"  type="text"></li>
+                    <li><div>고객등급[A:VIP,B:일반,C:직원]</div> <input class="txt" type="text"></li>
+                    <li><div>도시코드</div> <input class="txt" type="text"></li>
+                    <input class="btn_fun" type="submit" value="등록">
+                    <input class="btn_fun" type="button" value="조회">
+                </ul>
+            </form>
+        </section>
+    </main>
+    <footer>
+        HRDKOREA Copyright@2016 All rights reserve. Human Resources Development Service of Korea
+    </footer>
+</body>
+</html>

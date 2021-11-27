@@ -1,89 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Image Slide</title>
+    <title>Document</title>
     <style>
-        ul{
-    list-style:none;
-}
-.wrapper{
-    /*     height:700px; */
-    /* background-color: lightgray; */
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-}
-.container{
-    width:1200px;
-    height:400px;
-    position: relative;
-    /* background-color: antiquewhite; */
-    overflow: hidden;
-}
-.slider{
-    display: flex;
-    position:absolute;
-    top:0;
-    left:0;
-}
-.item{
-    width:110%;
-    height:400px;
-    background-color: yellow;
-    font-size: 35px;
-    /* text-align: center; */
-}
-.item:nth-child(2){
-    background-color: green;
-}
-.item:nth-child(3){
-    background-color: blue;
-}
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
 
-.container ul{
-    -webkit-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
-    -o-transition: all 0.25s cubic-bezier(1, .01, .32, 1);
-    transition: all 0.25s cubic-bezier(1, .01, .32, 1);
-}
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: top;
+        }
+
+        .carousel {
+            width: 1380px;
+            height:581px;
+            margin: 0 auto;
+            background-color: aqua;
+            position: relative;
+        }
+
+        .carousel .view {
+            width: 1380px;
+            height: 581px;
+            margin: 0 auto;
+            background-color: pink;
+            overflow: hidden;
+        }
+
+        .carousel .view .list {
+            width: 1380px;
+            margin-left: -450px;
+        }
+
+        .carousel .view .list:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .carousel .view .list>li {
+            float: left;
+        }
+
+        .carousel .view .list>li ul:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .carousel .view .list>li ul li {
+            float: left;
+            width: 1380px;
+            height: 591px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+
+        .carousel .prev {
+            position: absolute;
+            width: 25px;
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            left: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        .carousel .next {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+            right: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
     </style>
 </head>
+
 <body>
-    <div class="wrapper">
-        <div class="container">
-            <ul class="slider">
-                <li class="item"><img src="01.jpg" alt=""></li>
-                <li class="item"><img src="02.jpg" alt=""></li>
-                <li class="item"><img src="03.jpg" alt=""></li>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <div class="carousel">
+        <div class="view">
+            <ul class="list">
+                <li>
+                    <ul>
+                        <li class="a1"><a href="#"><img src="04.jpg" alt=""></a></li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li class="a4"><a href="#"><img src="05.jpg" alt=""></a></li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li class="a7"><a href="#"><img src="06.jpg" alt=""></a></li>
+                        
+                    </ul>
+                </li>
             </ul>
         </div>
+        <p class="prev">이<br>전</p>
+        <p class="next">이<br>후</p>
     </div>
     <script>
-        var slideWrapper = document.querySelector('.container');
-var slides = document.querySelectorAll('.item');
-var totalSlides = slides.length; // item의 갯수
+        $(document).ready(function () {
 
+            $('.prev').click(function () {
+                $('.list').stop().animate({ 'margin-left': '-1380px' }, function () {
+                    $('.list>li').eq(0).appendTo('.list');
+                    $('.list').css({ 'margin-left': '-1380px' });
+                });
+            });
+            $('.next').click(function () {
+                $('.list').stop().animate({ 'margin-left': '0px' }, function () {
+                    $('.list>li').eq(2).prependTo('.list');
+                    $('.list').css({ 'margin-left': '-1380px' });
+                });
+            });
 
-var sliderWidth = slideWrapper.clientWidth; // container의 width
-var slideIndex = 0;
-var slider = document.querySelector('.slider');
+            var auto = setInterval(function () {
+                $('.list').stop().animate({ 'margin-left': '0px' }, function () {
+                    $('.list>li').eq(2).prependTo('.list');
+                    $('.list').css({ 'margin-left': '-1380px' });
+                });
+            }, 2000);
 
-slider.style.width = sliderWidth * totalSlides + 'px';
+            /* 마우스 올렸을때 캐러셀 자동 멈춤 */
+            $('.carousel').mouseenter(function () {
+                clearInterval(auto);
+            });
 
-showSlides()
-
-function showSlides() {
-    for(var i=0;i<slides.length;i++){
-        slider.style.left = -(sliderWidth * slideIndex) + 'px';    
-    }
-    slideIndex++;
-    if (slideIndex === totalSlides) {
-        slideIndex = 0;
-    }
-    setTimeout(showSlides, 2000); 
-}
+            /* 마우스 내렸을때 캐러셀 자동 다시실행 */
+            $('.carousel').mouseleave(function () {
+                auto = setInterval(function () {
+                    $('.list').stop().animate({ 'margin-left': '0px' }, function () {
+                        $('.list>li').eq(2).prependTo('.list');
+                        $('.list').css({ 'margin-left': '-1380px' });
+                    });
+                }, 2000);
+            });
+        });
     </script>
 </body>
 
