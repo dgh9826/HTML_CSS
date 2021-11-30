@@ -11,46 +11,144 @@
             padding:0;
             box-sizing: border-box;
         }
-        header h2{
+        body{
+            
+            background-color: rgb(219, 214, 207);
+        }
+        [id*="c_"]{
+            width:100%;
+        }
+        header h1{
+            width: 100%;
             text-align: center;
+            height: 80px;
+            line-height: 80px;
+            background : blue ;
+            background : linear-gradient(270deg, rgb(236, 236, 232),blue);
+            color:#fff;
         }
         ul{
             list-style-type: none;
         }
         nav ul li{
             display: inline-block;
+            line-height: 100%;
+            display:inline;
+            margin:0 50px;
         }
+        nav{
+            background: rgb(191, 152, 228);
+            background : linear-gradient(270deg, rgb(236, 236, 232),rgb(191, 152, 228));
+            color:#fff;
+            height:38px;
+        }
+        nav ul{
+            margin:auto;
+            padding-top:10px;
+            text-align:center;
+        }
+        @media only screen and ( max-width: 768px){
+            h1{
+                font-size:20px;
+            }
+            header{
+                width:100%;
+            }
+            footer{
+                height:40px;
+                font-size:15px;
+            }
+            main{
+                width:100%;
+            }
+            section form{
+                width:100%;
+                font-size:12px;
+            }
+            form li{
+                text-align: center;
+                height: 40px;
+            }
+            nav{
+                height:130px;
+                line-height: 80px;
+            }
+            nav ul li{
+                display:block;
+                margin:10px;
+            }
+        }
+        @media only screen and ( min-width: 768px){
+            nav ul{
+                float:left;
+            }
+            nav ul li{
+                display:inline;
+            }
+            footer{
+                height: 50px;
+                line-height: 50px;
+            }
+        }
+ 
         main{
             text-align: center;
             align-content: center;
+            margin-top: 50px;
+        }
+        main h2{
+            margin-bottom: 20px;
         }
         form{
-            border:3px solid black;
+            border:1px solid black;
+            width: 50%;
+            margin:30px auto;
+            border-radius: 5px;
+            padding:2px;
+        }
+        .info{
+            display:block;
         }
         .info li{
             display: flex;
             border:1px solid black;
-
+            padding:2px;
+            height:30px;
         }
-        .info li div{
+        .info div{
             text-align: center;
             font-weight: bold;
-            width:400px;
-            height: 25px;
+            width:50%;
             border-right: 1px black solid;
+            padding:2px;
+            margin-right:2px;
         }
         .txt{
-            width:250px;
+            width:25%;
             float: left;
+        }
+        .btn{
+            justify-content: center;
+        }
+        .btn input{
+            display: inline-block;
+            margin:2px;
         }
         .btn_fun{
             width:30px;
+            font-weight: bold;
+        }
+        footer{
+            text-align: center;
+            background : blue ;
+            background : linear-gradient(270deg, rgb(236, 236, 232),blue);
+            color:#fff;
         }
     </style>
 </head>
 <body>
     <header>
-        <h2>쇼핑몰 회원관리 VER 1.0</h2>
+        <h1>쇼핑몰 회원관리 VER 1.0</h1>
         <nav>
             <ul>
                 <li>회원등록</li>
@@ -61,8 +159,9 @@
         </nav>
     </header>
     <main>
-        <h3>쇼핑몰 회원 등록</h3>
+        <h2>쇼핑몰 회원 등록</h2>
         <section>
+            <div>
             <form action="#">
                 <ul class="info">
                     <li><div>회원번호(자동발생)</div> <input class="txt" type="text"></li>
@@ -71,13 +170,14 @@
                     <li><div>회원주소</div> <input class="txt"  type="text"></li>
                     <li><div>고객등급[A:VIP,B:일반,C:직원]</div> <input class="txt" type="text"></li>
                     <li><div>도시코드</div> <input class="txt" type="text"></li>
-                    <input class="btn_fun" type="submit" value="등록">
-                    <input class="btn_fun" type="button" value="조회">
+                    <li class="btn"><input class="btn_fun" type="submit" value="등록">
+                    <input class="btn_fun" type="button" value="조회"></li>
                 </ul>
             </form>
+        </div>
         </section>
     </main>
-    <footer>
+    <footer id="c_12">
         HRDKOREA Copyright@2016 All rights reserve. Human Resources Development Service of Korea
     </footer>
 </body>
