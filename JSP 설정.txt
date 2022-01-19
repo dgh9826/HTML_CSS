@@ -1,0 +1,20 @@
+JSP 구동 환경 설정
+
+1. JDK,JRE가 설치 되어있어야함
+2. IDE 설치 => 이클립스
+3. 톰캣 설치 => http://tomcat.apache.org/
+4. 이클립스, 톰캣 연동
+
+톰캣 9.0의 홈디레고리와 기본문서
+홈 디렉토리 : C:\Tomcat 9.0\webapps\ROOT	<==*.jsp 파일 저장 위치
+기본 문서 : index.html, index.htm, index.jsp
+
+Client Side Script : 스크립트 해석을 Client 웹브라우져가 해석 => HTML, CSS, JavaScript, JQuery
+		=>정적 컨텐츠 제작
+Server Side Script : 스크립트 해석을 Server에서 해석, 해석된 결과를 Client에게 전송 =>JSP, ASP.net,PHP,Perl,CGI
+		=>동적 컨텐츠 제각
+		=>DataBAse를 조작할 수 있다.
+		=>Client가 원본 소스를 볼 수 없다
+
+*웹브라우저는 Client Side Script를 해석할 수 있는 해석기가 내장. 
+*웹브라우저는 Server Side Script는 해석기가 없기때문에 해석하여 볼 수 없다.
